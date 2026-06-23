@@ -1,0 +1,63 @@
+import pandas as pd
+
+# === 1. 读取 CSV ===
+df = pd.read_csv("isco88 to soc10 finish.csv")
+
+# === 2. 定义规则 ===
+
+# SOC supervisor codes
+supervisor_codes = {
+    511011, 531031, 531021, 552011, 552012, 552013
+}
+
+# SOC clinical doctors (should not match ISCO 2212)
+clinical_physicians = {
+    291062, 291063, 291065, 291069
+}
+
+# ISCO research occupations
+isco_research = {"2212"}
+
+# Weak match keywords
+weak_keywords = [
+    "helpers", "assistants", "attendants", "all other",
+    "miscellaneous", "technicians", "support"
+]
+
+# === 3. 定义分类函数 ===
+
+def classify_row(row):
+    isco = str(row["ISCO_88_code"]).strip()
+    soc = str(row["soc10"]).strip()
+    title = str(row["soc10_title"]).lower()
+
+    # ---------- RULE 1: Supervisor mismatch ----------
+    if soc.isdigit() and int(soc) in supervisor_codes:
+        return "remove", "supervisor", "ISCO operational roles cannot map to SOC supervisors"
+
+    # ---------- RULE 2: ISCO 2212 must map to research occupations ----------
+    if isco == "2212" and soc.isdigit() and int(soc) in clinical_physicians:
+        return "remove", "industry", "ISCO 2212 is research, not clinical physicians"
+
+    # ---------- RULE 3: Weak match ----------
+    if any(k in title for k in weak_keywords):
+        return "weak", "task", "Partial task overlap but not strong match"
+
+    # ---------- RULE 4: Missing SOC code ----------
+    if soc == "" or soc == "nan":
+        return "remove", "none", "Missing SOC code"
+
+    # ---------- RULE 5: Default strong ----------
+    return "strong", "none", "Conceptually valid match"
+
+# === 4. 应用规则 ===
+results = df.apply(lambda row: classify_row(row), axis=1)
+df["match_type"] = results.apply(lambda x: x[0])
+df["error_type"] = results.apply(lambda x: x[1])
+df["notes"] = results.apply(lambda x: x[2])
+
+# === 5. 导出结果 ===
+df.to_excel("isco88_to_soc10_with_labels.xlsx", index=False)
+
+print("Done! 输出文件： isco88_to_soc10_with_labels.xlsx")
+
