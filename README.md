@@ -70,3 +70,7 @@ If you use this crosswalk in academic work, please cite:
 ## License
 This project is released under the MIT License.
 You are free to use, modify, and distribute the dataset with attribution.
+
+## Reference
+> Guido Weksler & Facundo Lastra (2022). occupationcross: Package for making crosswalks among different occupational codes. R package version https://doi.org/10.5281/zenodo.7025097
+> https://www.ilo.org/resource/correspondence-table-isco08-isco88
