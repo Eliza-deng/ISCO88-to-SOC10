@@ -1,7 +1,7 @@
 # ISCO88-to-SOC10
 Crosswalk about ISCO88 to SOC10
 
-A fully cleaned, manually validated crosswalk between ISCO-08 4-digit occupations and U.S. SOC 2018 6-digit occupations, created for research on labor markets, automation, and occupational classification harmonization.
+A fully cleaned, manually validated crosswalk between ISCO-08 4-digit occupations and U.S. SOC 2010 6-digit occupations, created for research on labor markets, automation, and occupational classification harmonization.
 
 This repository contains:
 - A cleaned crosswalk dataset
@@ -58,7 +58,7 @@ Cooling/freezing operators ↔ food processing
 | --- | --- |
 | ``ISCO_88_code`` | ISCO-88 4-digit occupation code |
 | ``ISCO_88_Title_EN`` | ISCO occupation title |
-| ``soc_10`` | SOC 2018 6-digit occupation code |
+| ``soc_10`` | SOC 2010 6-digit occupation code |
 | ``soc_title`` | SOC occupation title |
 | ``match_type`` | ``"strong"``, ``"weak"``, or ``"removed"`` |
 | ``notes`` | Explanation for weak/removed mappings |
