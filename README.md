@@ -1,7 +1,7 @@
 # ISCO88-to-SOC10
 Crosswalk about ISCO88 to SOC10
 
-A fully cleaned, manually validated crosswalk between ISCO-08 4-digit occupations and U.S. SOC 2010 6-digit occupations, created for research on labor markets, automation, and occupational classification harmonization.
+A fully cleaned, manually validated crosswalk between ISCO-88 4-digit occupations and U.S. SOC 2010 6-digit occupations, created for research on labor markets, automation, and occupational classification harmonization.
 
 This repository contains:
 - A cleaned crosswalk dataset
