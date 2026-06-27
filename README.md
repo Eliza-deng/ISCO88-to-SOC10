@@ -74,3 +74,5 @@ You are free to use, modify, and distribute the dataset with attribution.
 ## Reference
 > Guido Weksler & Facundo Lastra (2022). occupationcross: Package for making crosswalks among different occupational codes. R package version https://doi.org/10.5281/zenodo.7025097
 > https://www.ilo.org/resource/correspondence-table-isco08-isco88
+> https://ibs.org.pl/en/resources/occupation-classifications-crosswalks-from-onet-soc-to-isco/
+> https://www.bls.gov/soc/2018/crosswalks.htm
