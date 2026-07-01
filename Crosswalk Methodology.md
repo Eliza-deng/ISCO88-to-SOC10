@@ -1,124 +1,122 @@
-# Methodology for Cleaning and Validating the ISCO‑88 → SOC‑2010 Crosswalk
+# **Crosswalk Methodology**
 
-This document describes the methodological principles, validation rules, and systematic error corrections applied to the ISCO‑88 to SOC‑2010 crosswalk.
-The goal is to produce a research‑grade, conceptually consistent, task‑aligned occupational mapping suitable for empirical labor economics, automation exposure measurement, and cross‑country harmonization.
+## **1. Introduction**
 
-## Overview
-The original ISCO‑88 → SOC‑2010 crosswalk contains numerous structural inconsistencies, including:
+This document presents the full methodological framework used to construct, clean, and validate the **ISCO‑88 → SOC‑2010** occupational crosswalk.  
+The objective is to produce a conceptually consistent, task‑aligned, and research‑grade mapping suitable for labor economics, automation exposure measurement, and international harmonization.
 
-- Industry mismatches
-- Task-content mismatches
-- Supervisor vs. operator level mismatches
-- Incorrect mappings caused by overly broad automated matching
-- Ambiguous mappings lacking occupational equivalence
+## **2. Sources and Reference Frameworks**
 
-This project applies a systematic, rule‑based cleaning procedure combined with line‑by‑line manual semantic review.
+The crosswalk integrates multiple authoritative sources:
 
-## Systematic Error Types Identified
-1. Industry Mismatch Errors
-These occur when the ISCO occupation and SOC occupation belong to different industries, even if the job titles appear superficially similar.
+- ILO ISCO‑88 and ISCO‑08 documentation  
+- U.S. SOC‑2010 classification  
+- O*NET occupational definitions and task lists  
+- IBS O*NET–ISCO crosswalk resources  
+- BLS SOC correspondence tables  
 
-  Examples
-  ISCO 2212 Pharmacologists, pathologists and related professionals  
-  → incorrectly mapped to clinical physicians (SOC 29‑1xxx)
-  
-  Reason:  
-  ISCO 2212 refers to life science researchers, not clinical practitioners.
-  This is a systematic error in the original crosswalk.
+These sources provide the conceptual foundation for evaluating industry alignment, task equivalence, and hierarchical consistency.
 
-2. Supervisor–Operator Level Mismatches
-  A major class of errors arises when ISCO operational occupations (machine operators, assemblers, drivers, cleaners) are    mapped to SOC first‑line supervisors.
+## **3. Systematic Error Types Identified**
+### **3.1 Industry Mismatch Errors**
+Mappings across fundamentally different industries are removed.
 
-  Examples
-  ISCO 828x Assemblers → SOC 511011 First‑Line Supervisors of Production Workers
-  ISCO 83xx Drivers → SOC 531031 First‑Line Supervisors of Transportation Workers
-  ISCO 9333 Freight handlers → SOC 531021 Supervisors of Laborers
+**Examples:**  
+- ISCO 2212 Pharmacologists, pathologists → SOC clinical physicians  
+- ISCO textile workers → SOC leather repairers  
 
-  Reason:  
-  Supervisory roles involve managerial, scheduling, and oversight tasks absent from ISCO 8xxx and 9xxx occupations.
+Industry alignment is evaluated using ISCO/SOC major groups and O*NET work context.
 
-  Rule:  
-  → All supervisor mappings were removed.
+### **3.2 Supervisor–Operator Level Mismatches**
+ISCO operational roles cannot map to SOC first‑line supervisors.
 
-3. Task-Content Mismatches
-  These errors occur when the ISCO occupation and SOC occupation perform fundamentally different tasks.
+**Examples:**  
+- ISCO 828x assemblers → SOC 511011 Supervisors of Production Workers  
+- ISCO 83xx drivers → SOC 531031 Supervisors of Transportation Workers  
 
-  Examples
-  Cleaners (ISCO 9132) → Dishwashers (SOC 359021)
-  Textile workers (ISCO 826x) → Leather repairers
-  Vehicle cleaners (ISCO 9142) → Septic tank servicers (SOC 474071)
-  Beverage machine operators (ISCO 8278) → Industrial extruding machine operators (SOC 519041)
+Supervisory tasks (scheduling, oversight, coordination) differ fundamentally from ISCO 8xxx/9xxx operational roles.
 
-  Rule:  
-  → Mappings were removed when core tasks did not overlap.
+### **3.3 Task‑Content Mismatches**
+Mappings are removed when core tasks do not overlap.
 
-4. Material/Process Mismatches
-  These errors arise when the ISCO occupation works with one material (e.g., plastic) but the SOC occupation works with      another (e.g., metal).
+**Examples:**  
+- ISCO cleaners → SOC dishwashers  
+- ISCO vehicle cleaners → SOC septic tank servicers  
+- ISCO beverage machine operators → SOC industrial extruding machine operators  
 
-  Examples
-  ISCO 8232 Plastic‑products machine operators
-  → incorrectly mapped to metal machining SOC codes (5140xx)
+Task equivalence is evaluated using O*NET task lists and ISCO descriptions.
 
-  Rule:  
-  → Plastic ↔ metal mappings were removed unless the SOC explicitly covers both.
+### **3.4 Material / Process Mismatches**
+Mappings are removed when ISCO and SOC occupations work with different materials or production processes, unless explicitly covered by SOC.
 
-5. Weak but Plausible Mappings
-  Some mappings are not perfect but share partial overlap in: Work environment, Tools, Physical tasks, General production    processes
+**Examples:**  
+- ISCO plastic‑products machine operators → SOC metal machining occupations  
 
-  Examples
-  Grounds maintenance ↔ farm labor
-  Parking attendants ↔ doorkeepers
-  Cooling/freezing operators ↔ food processing operators
 
-  Rule:  
-  → These mappings were retained but downgraded as "weak".
+### **3.5 Weak but Plausible Mappings**
+Mappings with partial overlap in tools, work environment, or physical tasks are retained but labeled as `weak`.
 
-## Validation Principles
-The cleaning process follows a consistent set of rules:
+**Examples:**  
+- grounds maintenance ↔ farm labor  
+- parking attendants ↔ doorkeepers  
+- cooling/freezing operators ↔ food processing  
 
-1. Industry Consistency
-  ISCO and SOC occupations must belong to the same broad industry
-  If industries differ fundamentally, the mapping is removed.
+Weak matches allow researchers to decide whether to include them depending on analytical needs.
 
-2. Task Equivalence
-  Core tasks must align:
-  Operating similar machinery
-  Performing similar manual labor
-  Handling similar materials
-  Following similar workflows
+## **4. Validation Principles**
 
-  If tasks differ in nature or purpose, the mapping is removed.
+### **4.1 Industry Consistency**
+ISCO and SOC occupations must belong to the same broad industry:
 
-3. Skill and Knowledge Alignment
-  Occupations must share: Similar technical skills, Similar knowledge domains, and similar work context
+- chemical ↔ chemical  
+- textile ↔ textile  
+- food processing ↔ food processing  
+- construction ↔ construction  
+- transportation ↔ transportation  
 
-  Example:
-  Chemical plant operators ↔ chemical equipment operators (strong match)
+### **4.2 Task Equivalence**
+Core tasks must align in:
 
-4. Hierarchical Consistency
-  ISCO operational roles cannot map to SOC supervisory roles.
+- machinery operated  
+- materials handled  
+- workflow structure  
+- physical or cognitive demands  
 
-  Rule:  
-  → All mappings to SOC 511011, 531031, 531021 were removed.
+Task equivalence is evaluated using O*NET task lists and ISCO descriptions.
 
-5. Semantic Review
-  Each ISCO–SOC pair was manually reviewed for:
-  Occupational definitions
-  Task lists
-  Industry classification
-  Work context
-  Required training/skills
+### **4.3 Skill and Knowledge Alignment**
+Occupations must share similar:
 
-## Match Classification
+- technical skills  
+- knowledge domains  
+- work context  
+
+### **4.4 Hierarchical Consistency**
+All mappings to SOC supervisory codes (511011, 531031, 531021) are removed.
+
+### **4.5 Semantic Review**
+Each ISCO–SOC pair is manually reviewed for:
+
+- occupational definitions  
+- task lists  
+- industry classification  
+- work context  
+- required training/skills  
+
+## **5. Match Classification**
 Each ISCO–SOC pair is assigned one of three categories:
 
 | Match Type | Meaning |
-| --- | --- |
+|-----------|---------|
 | **strong** | High task/industry equivalence; retained |
 | **weak** | Partial overlap; retained with caution |
 | **removed** | Conceptually invalid; deleted |
 
-## Limitations
-Some ISCO occupations have no true SOC equivalent
-Weak matches should be used cautiously
-Crosswalks cannot fully capture country‑specific job content differences
+## **6. Limitations**
+- Some ISCO occupations have no true SOC equivalent.  
+- Weak matches should be used cautiously.  
+- Crosswalks cannot fully capture country‑specific job content differences.  
+- Task definitions differ across statistical systems, introducing unavoidable noise.
+
+
+
