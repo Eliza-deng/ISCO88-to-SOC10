@@ -18,18 +18,18 @@ This project provides a high-quality ISCO–SOC crosswalk suitable for:
 - Machine learning models requiring unified occupation codes
 
 ## Cleaning & Validation Principles
-TThe crosswalk applies a small set of consistent rules to ensure conceptual validity:
+The crosswalk applies a small set of consistent rules to ensure conceptual validity:
 
-Supervisor mappings removed  
+- Supervisor mappings removed  
 ISCO operational roles cannot map to SOC first‑line supervisors.
 
-Industry mismatches removed  
+- Industry mismatches removed  
 Mappings across unrelated industries (e.g., textile ↔ leather repair) are deleted.
 
-Task‑content mismatches removed  
+- Task‑content mismatches removed  
 Occupations must share core tasks and work processes.
 
-Weak but plausible mappings retained  
+- Weak but plausible mappings retained  
 Partial overlaps are kept but flagged as weak.
 
 Full details are documented in Crosswalk Methodology.
@@ -55,6 +55,9 @@ You are free to use, modify, and distribute the dataset with attribution.
 
 ## Reference
 > Guido Weksler & Facundo Lastra (2022). occupationcross: Package for making crosswalks among different occupational codes. R package version https://doi.org/10.5281/zenodo.7025097
+
 > ILO ISCO correspondence tables：https://www.ilo.org/resource/correspondence-table-isco08-isco88
+
 > BLS SOC crosswalks：https://ibs.org.pl/en/resources/occupation-classifications-crosswalks-from-onet-soc-to-isco/
+
 > IBS O*NET–ISCO resources：https://www.bls.gov/soc/2018/crosswalks.htm
